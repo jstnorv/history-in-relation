@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Explore historical connections across the lands of contemporary Ukraine and the wider world.">
+        <title>{% block title %}Connections across time{% endblock %} | History in Relation</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="brand" href="{{ url_for('index') }}">History <span>in Relation</span></a>
+            <p class="header-note">An independent learning project</p>
+        </header>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+        <footer class="site-footer">
+            <p>
+                A student-built educational companion. Not affiliated with UHGI.
+                Starter topic summaries and connections are based on the
+                <a href="https://uhgi.org/" target="_blank" rel="noopener noreferrer">UHGI project overview</a>;
+                follow the source to read its framing in context.
+            </p>
+        </footer>
+    </body>
+</html>

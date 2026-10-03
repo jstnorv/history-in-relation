@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ topic.name }}{% endblock %}
+
+{% block main %}
+    <section class="topic-intro">
+        <a class="back-link" href="{{ url_for('index') }}">← All topics</a>
+        <p class="eyebrow">{{ topic.period }}</p>
+        <h1>{{ topic.name }}</h1>
+        <p class="hero-copy">{{ topic.summary }}</p>
+    </section>
+
+    <section class="connections" aria-labelledby="connections-heading">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Follow the threads</p>
+                <h2 id="connections-heading">Connections from this topic</h2>
+            </div>
+            <span class="connection-count">{{ connections|length }} connection{% if connections|length != 1 %}s{% endif %}</span>
+        </div>
+
+        {% if connections %}
+            <div class="connection-list">
+                {% for connection in connections %}
+                    <article class="connection-card">
+                        <div class="connection-line" aria-hidden="true"><span></span></div>
+                        <div class="connection-content">
+                            <p class="relationship">{{ connection.relationship }}</p>
+                            <h3><a href="{{ url_for('topic_detail', slug=connection.related_slug) }}">{{ connection.related_name }} <span aria-hidden="true">↗</span></a></h3>
+                            <p>{{ connection.explanation }}</p>
+                            <p class="citation">
+                                Source: <a href="{{ connection.source_url }}" target="_blank" rel="noopener noreferrer">{{ connection.source_name }}</a>
+                            </p>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="empty-state">There are no connections for this topic yet.</p>
+        {% endif %}
+    </section>
+{% endblock %}

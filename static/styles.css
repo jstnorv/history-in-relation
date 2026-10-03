@@ -1,0 +1,397 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap");
+
+:root {
+    color-scheme: light;
+    --ink: #182522;
+    --muted: #5b6965;
+    --paper: #f8f7f2;
+    --card: #fffefa;
+    --line: #d8ded8;
+    --green: #255b4c;
+    --green-dark: #183e34;
+    --accent: #bf693f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--green);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.site-header,
+.site-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    color: var(--ink);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.brand span {
+    color: var(--green);
+}
+
+.header-note,
+.site-footer p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+main {
+    max-width: 1200px;
+    min-height: 75vh;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+}
+
+.hero {
+    max-width: 780px;
+    padding: 5.5rem 0 4rem;
+}
+
+.eyebrow,
+.topic-period,
+.relationship {
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.eyebrow {
+    margin: 0 0 1rem;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: -0.035em;
+}
+
+h1 {
+    max-width: 760px;
+    margin-bottom: 1.25rem;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+}
+
+h1 em {
+    color: var(--green);
+}
+
+h2 {
+    margin-bottom: 0;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.2;
+}
+
+.hero-copy {
+    max-width: 640px;
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.stats strong {
+    color: var(--ink);
+}
+
+.explorer,
+.connections {
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 0.5rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-form input {
+    width: min(290px, 48vw);
+    min-height: 2.8rem;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--card);
+    font: inherit;
+}
+
+.search-form button {
+    padding: 0.6rem 1rem;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    background: var(--green);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.clear-search {
+    align-self: center;
+    font-size: 0.85rem;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.topic-card {
+    display: flex;
+    min-height: 250px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    color: inherit;
+    background: var(--card);
+    text-decoration: none;
+    transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--green);
+}
+
+.topic-period {
+    font-size: 0.68rem;
+}
+
+.topic-card h3,
+.connection-card h3 {
+    margin: 0.55rem 0 0.6rem;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.45rem;
+    line-height: 1.25;
+}
+
+.topic-card p,
+.connection-content > p:not(.relationship, .citation) {
+    color: var(--muted);
+    font-size: 0.93rem;
+}
+
+.topic-card p {
+    margin-bottom: 1rem;
+}
+
+.card-link {
+    margin-top: auto;
+    color: var(--green);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.empty-state {
+    padding: 2rem;
+    border: 1px dashed var(--line);
+    color: var(--muted);
+    text-align: center;
+}
+
+.topic-intro {
+    max-width: 780px;
+    padding: 3.5rem 0 3rem;
+}
+
+.topic-intro h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 3.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.connection-count {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.connection-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.connection-card {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: var(--card);
+}
+
+.connection-line {
+    display: flex;
+    justify-content: center;
+}
+
+.connection-line span {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-top: 0.3rem;
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    background: var(--card);
+}
+
+.connection-content h3 a {
+    color: var(--ink);
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+}
+
+.connection-content h3 a:hover {
+    color: var(--green);
+    text-decoration-color: var(--green);
+}
+
+.relationship {
+    margin-bottom: 0;
+    font-size: 0.68rem;
+}
+
+.connection-content > p:not(.relationship, .citation) {
+    margin-bottom: 0.8rem;
+}
+
+.citation {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.site-footer {
+    border-top: 1px solid var(--line);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+@media (max-width: 850px) {
+    .topic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 560px) {
+    .site-header,
+    .site-footer {
+        padding-right: 1.1rem;
+        padding-left: 1.1rem;
+    }
+
+    .header-note {
+        max-width: 120px;
+        text-align: right;
+    }
+
+    main {
+        padding-right: 1.1rem;
+        padding-left: 1.1rem;
+    }
+
+    .hero {
+        padding-top: 4rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-form {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .search-form input {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+}

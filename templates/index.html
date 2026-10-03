@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Explore topics{% endblock %}
+
+{% block main %}
+    <section class="hero">
+        <p class="eyebrow">A small map of a much larger story</p>
+        <h1>History makes more sense <em>in relation.</em></h1>
+        <p class="hero-copy">
+            Explore how peoples, places, and periods across the lands of contemporary
+            Ukraine connect with wider histories.
+        </p>
+        <div class="stats" aria-label="Explorer contents">
+            <span><strong>{{ topics|length }}</strong> matching topics</span>
+            <span><strong>{{ connection_count }}</strong> curated connections</span>
+        </div>
+    </section>
+
+    <section class="explorer" aria-labelledby="topics-heading">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Start anywhere</p>
+                <h2 id="topics-heading">Explore a topic</h2>
+            </div>
+            <form class="search-form" action="{{ url_for('index') }}" method="get" role="search">
+                <label class="visually-hidden" for="topic-search">Search topics</label>
+                <input id="topic-search" name="q" value="{{ search }}" placeholder="Search topics or periods">
+                <button type="submit">Search</button>
+                {% if search %}
+                    <a class="clear-search" href="{{ url_for('index') }}">Clear</a>
+                {% endif %}
+            </form>
+        </div>
+
+        {% if topics %}
+            <div class="topic-grid">
+                {% for topic in topics %}
+                    <a class="topic-card" href="{{ url_for('topic_detail', slug=topic.slug) }}">
+                        <span class="topic-period">{{ topic.period }}</span>
+                        <h3>{{ topic.name }}</h3>
+                        <p>{{ topic.summary }}</p>
+                        <span class="card-link">Explore connections <span aria-hidden="true">→</span></span>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="empty-state">No topics match “{{ search }}”. Try another search.</p>
+        {% endif %}
+    </section>
+{% endblock %}
