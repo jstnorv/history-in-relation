@@ -18,7 +18,15 @@ From this directory:
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-flask --app app run --debug
+./run_local.sh
+```
+
+This project is configured to use port `5050` to avoid macOS port conflicts on `5000`, and debug mode is explicitly disabled so Flask does not spawn a reloader process that can leave stale listeners behind.
+
+If you want to run the app manually instead of using the helper script, use:
+
+```sh
+FLASK_DEBUG=0 python app.py
 ```
 
 Open the local address printed by Flask. On Windows, activate the environment with `.venv\Scripts\activate`.

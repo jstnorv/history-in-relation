@@ -4,16 +4,61 @@
 
 {% block main %}
     <section class="hero">
-        <p class="eyebrow">A small map of a much larger story</p>
-        <h1>History makes more sense <em>in relation.</em></h1>
-        <p class="hero-copy">
-            Explore how peoples, places, and periods across the lands of contemporary
-            Ukraine connect with wider histories.
-        </p>
-        <div class="stats" aria-label="Explorer contents">
-            <span><strong>{{ topics|length }}</strong> matching topics</span>
-            <span><strong>{{ connection_count }}</strong> curated connections</span>
+        <div class="hero-grid">
+            <div>
+                <p class="eyebrow">A small part of a much larger story</p>
+                <h1>History makes more sense <em>in relation.</em></h1>
+                <p class="hero-copy">
+                    Explore how peoples, places, and periods across the lands of contemporary
+                    Ukraine connect with wider histories.
+                </p>
+                <div class="stats" aria-label="Explorer contents">
+                    <span><strong>{{ topics|length }}</strong> matching topics</span>
+                    <span><strong>{{ connection_count }}</strong> curated connections</span>
+                </div>
+            </div>
+            <figure class="map-panel" aria-label="Map of Ukraine">
+                <img src="{{ url_for('static', filename='ukraine-map.png') }}" alt="Map of Ukraine">
+                <figcaption>Contemporary Ukraine</figcaption>
+            </figure>
         </div>
+    </section>
+
+    <section class="home-explanation" aria-labelledby="home-explanation-heading">
+        <h2 id="home-explanation-heading" class="visually-hidden">About this project</h2>
+        <p>
+            This companion invites you to study the history of the lands of contemporary
+            Ukraine not as an isolated national narrative, but as a set of relationships:
+            between <a href="{{ url_for('topic_detail', slug='yamna') }}">Yamna</a> and the spread of
+            <a href="{{ url_for('topic_detail', slug='indo-european-languages') }}">Indo-European languages</a>;
+            between <a href="{{ url_for('topic_detail', slug='scythia') }}">Scythia</a>, the
+            <a href="{{ url_for('topic_detail', slug='bosporan-kingdom') }}">Bosporan Kingdom</a>, and
+            <a href="{{ url_for('topic_detail', slug='ancient-athens') }}">Ancient Athens</a>; and between the Black Sea region and the wider Mediterranean,
+            European, and Eurasian worlds.
+        </p>
+        <p>
+            The medieval story likewise emerges through connection. <a href="{{ url_for('topic_detail', slug='rus') }}">Rus</a>
+            can be explored as a meeting point shaped by <a href="{{ url_for('topic_detail', slug='slavic-peoples') }}">Slavic peoples</a>,
+            <a href="{{ url_for('topic_detail', slug='vikings') }}">Vikings</a>,
+            <a href="{{ url_for('topic_detail', slug='byzantium') }}">Byzantium</a>, the
+            <a href="{{ url_for('topic_detail', slug='khazars') }}">Khazars</a>, and
+            <a href="{{ url_for('topic_detail', slug='western-europe') }}">Western Europe</a>—a reminder that political communities and cultural traditions develop through exchange,
+            migration, trade, conflict, and adaptation rather than a single, self-contained origin.
+        </p>
+        <p>
+            Later topics continue that pattern into the early modern and contemporary periods.
+            The <a href="{{ url_for('topic_detail', slug='cossacks') }}">Cossacks</a> help introduce the theme of
+            <a href="{{ url_for('topic_detail', slug='anti-colonial-or-proto-national-entities') }}">anti-colonial or proto-national entities</a>.
+            The twentieth century places the <a href="{{ url_for('topic_detail', slug='soviet-union') }}">Soviet Union</a> and
+            <a href="{{ url_for('topic_detail', slug='nazi-germany') }}">Nazi Germany</a> in conversation with ideas of
+            <a href="{{ url_for('topic_detail', slug='global-transformation') }}">global transformation</a>, showing how both regimes understood Ukraine as central to broader projects of power,
+            economy, territory, and ideology. The final sections connect the
+            <a href="{{ url_for('topic_detail', slug='russo-ukrainian-war') }}">Russo-Ukrainian war</a> to
+            <a href="{{ url_for('topic_detail', slug='global-economy-and-politics') }}">global economy and politics</a>, while keeping attention on the longer histories of creation, movement, and interdependence that preceded it.
+        </p>
+        <p>
+            These pages are entry points, not complete histories. Start with any topic, follow its connections, and compare periods that are often taught separately. That approach reflects the Ukrainian History Global Initiative’s larger premise: when the histories of Ukraine’s lands and peoples are placed in wider context, both Ukrainian and global history become easier to understand.
+        </p>
     </section>
 
     <section class="explorer" aria-labelledby="topics-heading">

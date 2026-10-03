@@ -8,6 +8,11 @@
         <p class="eyebrow">{{ topic.period }}</p>
         <h1>{{ topic.name }}</h1>
         <p class="hero-copy">{{ topic.summary }}</p>
+        {% if topic_explanation %}
+            <div class="topic-explanation">{{ topic_explanation|safe }}</div>
+        {% else %}
+            <p class="topic-context">{{ topic_context }}</p>
+        {% endif %}
     </section>
 
     <section class="connections" aria-labelledby="connections-heading">

@@ -21,7 +21,9 @@ class ExplorerTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Yamna", response.data)
         self.assertIn(b"Rus", response.data)
+        self.assertIn(b"ukraine-map.png", response.data)
         self.assertIn(b"13</strong> curated connections", response.data)
+        self.assertLess(response.data.find(b"Yamna"), response.data.find(b"Rus"))
 
     def test_search_filters_topics(self):
         response = self.client.get("/?q=Antiquity")
@@ -32,9 +34,19 @@ class ExplorerTests(unittest.TestCase):
     def test_topic_page_shows_explained_and_cited_connections(self):
         response = self.client.get("/topic/rus")
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b"<h2>Rus</h2>", response.data)
+        self.assertIn(b"Slavic peoples", response.data)
         self.assertIn(b"Vikings", response.data)
+        self.assertIn(b"Byzantium", response.data)
         self.assertIn(b"Formation included", response.data)
         self.assertIn(b"https://uhgi.org/", response.data)
+
+    def test_topic_explanation_citation_tokens_become_links(self):
+        response = self.client.get("/topic/yamna")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'https://www.nature.com/articles/s41586-024-08531-5', response.data)
+        self.assertIn(b'nature+1', response.data)
+        self.assertIn(b'https://www.science.org/content/article/nomadic-herders-left-strong-genetic-mark-europeans-and-asians', response.data)
 
     def test_unknown_topic_returns_not_found(self):
         response = self.client.get("/topic/not-a-topic")

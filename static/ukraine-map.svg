@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 500" role="img" aria-labelledby="title desc">
+  <title id="title">Map of Ukraine</title>
+  <desc id="desc">A stylized outline of Ukraine in blue and yellow.</desc>
+  <defs>
+    <linearGradient id="ukraineFill" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a5ec4"/>
+      <stop offset="100%" stop-color="#003d82"/>
+    </linearGradient>
+  </defs>
+  <rect width="520" height="500" fill="#edf4fb"/>
+  <path d="M167 40 205 22 260 30 314 42 350 62 385 74 417 96 435 128 454 170 446 199 433 228 409 252 382 264 362 310 342 351 316 390 285 407 251 416 213 401 181 374 159 339 146 311 131 275 109 241 94 187 103 152 121 109 138 75 Z" fill="url(#ukraineFill)" stroke="#003d82" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M318 334 351 326 370 337 371 358 351 377 328 372 313 352 Z" fill="#ffd500" stroke="#003d82" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M162 95 214 110 268 98 284 134 274 182 241 216 199 220 171 196 148 160 Z" fill="#ffd500" opacity="0.7"/>
+  <path d="M221 226 301 214 330 238 318 282 278 304 228 294 200 255 Z" fill="#ffd500" opacity="0.56"/>
+  <circle cx="244" cy="171" r="5" fill="#ffd500"/>
+  <circle cx="309" cy="255" r="5" fill="#ffd500"/>
+  <circle cx="196" cy="107" r="4" fill="#ffd500"/>
+  <path d="M210 330 163 402 156 445" stroke="#003d82" stroke-width="6" stroke-linecap="round" opacity="0.58"/>
+  <path d="M248 347 351 372" stroke="#003d82" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+  <path d="M157 108 220 148 256 186 289 176 329 203" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+</svg>
